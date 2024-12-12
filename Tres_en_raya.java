@@ -54,6 +54,37 @@ public class Tres_en_raya {
 		                System.out.println();  // Salt de línia després de cada fila del tauler
 		            }
 
-		            
+		            // Demano al jugador actual que introdueixi el seu moviment
+		            int fila, columna;
+		            boolean movimentValid = false;
+		            while (!movimentValid) {
+		                // Sol·licito al jugador que introdueixi una fila i columna (1-3)
+		                System.out.println(torn + ", introdueix fila (1-3) i columna (1-3) per posar la teva fitxa:");
+		                fila = scanner.nextInt() - 1;  // Restem 1 per ajustar la entrada a índexs de matriu (0-2)
+		                columna = scanner.nextInt() - 1;  // Faig el mateix amb la columna
+
+		                // Verifico si la casella triada és vàlida, es a dir, dins del rang i buida
+		                if (fila >= 0 && fila < 3 && columna >= 0 && columna < 3 && tauler[fila][columna].equals(" ")) {
+		                    // Si la casella està buida, posola fitxa del jugador en aquesta posició
+		                    tauler[fila][columna] = torn.equals(jugador1) ? "X" : "O";  // "X" per al Jugador 1, "O" per al Jugador 2
+		                    movimentValid = true; 
+		                    
+		                } else {
+		                    
+		                    System.out.println("Posició invàlida. La casella està ocupada o fora de rang. Intenta novament.");
+		                }
+		            }
+
+		            // Comprovo si hi ha un guanyador després del moviment
+		            boolean victoria = false;
+		            // Comprovo les files i columnes per veure si hi ha tres fitxes iguals alineades
+		            for (int i = 0; i < 3; i++) {
+		                if ((tauler[i][0].equals(tauler[i][1]) && tauler[i][0].equals(tauler[i][2]) && !tauler[i][0].equals(" "))
+		                    || (tauler[0][i].equals(tauler[1][i]) && tauler[0][i].equals(tauler[2][i]) && !tauler[0][i].equals(" "))) {
+		                    victoria = true; 
+		                    break;  
+		                }
+		            }
+		           
 		    }
 		}
