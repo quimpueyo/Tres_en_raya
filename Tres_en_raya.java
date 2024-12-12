@@ -36,6 +36,24 @@ public class Tres_en_raya {
 		        System.out.println("Introdueix el nom del Jugador 2:");
 		        jugador2 = scanner.nextLine();
 
-		      
+		        // Aleatòriament qui començarà
+		        if (random.nextInt(2) == 0) {
+		            torn = jugador1;  // Si el número aleatori és 0, el Jugador 1 començarà
+		        } else {
+		            torn = jugador2;  // Si el número aleatori és 1, el Jugador 2 començarà
+		        }
+
+		        // Bucle principal del joc
+		        while (jocEnCurs) {
+		            // Mostro el tauler després de cada moviment
+		            System.out.println("Tauler:");
+		            for (int i = 0; i < 3; i++) {
+		                for (int j = 0; j < 3; j++) {
+		                    System.out.print("[" + tauler[i][j] + "]");  //Cada casella del tauler
+		                }
+		                System.out.println();  // Salt de línia després de cada fila del tauler
+		            }
+
+		            
 		    }
 		}
