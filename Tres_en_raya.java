@@ -85,6 +85,31 @@ public class Tres_en_raya {
 		                    break;  
 		                }
 		            }
+		            // Comprovem les dues diagonals per veure si hi ha tres fitxes iguals alineades
+		            if ((tauler[0][0].equals(tauler[1][1]) && tauler[0][0].equals(tauler[2][2]) && !tauler[0][0].equals(" "))
+		                || (tauler[0][2].equals(tauler[1][1]) && tauler[0][2].equals(tauler[2][0]) && !tauler[0][2].equals(" "))) {
+		                victoria = true;  
+		            }
+
+		            // Si hi ha un guanyador
+		            if (victoria) {
+		                System.out.println(torn + " ha guanyat!");  
+		                System.out.println("Vols jugar una altra vegada? (si/no)");
+		                String resposta = scanner.next();  
+		                if (resposta.equalsIgnoreCase("si")) {
+		                    // Si volen jugar de nou, es reiniciarà el tauler i continuarà amb el joc
+		                    for (int i = 0; i < 3; i++) {
+		                        for (int j = 0; j < 3; j++) {
+		                            tauler[i][j] = " ";  // Neteja del tauler
+		                        }
+		                    }
+		                    continue;  // Reinicio el bucle per una nova partida
+		                } else {
+		                    jocEnCurs = false;  // Si no volen jugar de nou, acaba el joc
+		                    System.out.println("Gràcies per jugar. Fins la propera!");
+		                }
+		            }
+
 		           
 		    }
 		}
