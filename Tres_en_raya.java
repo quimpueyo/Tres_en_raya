@@ -22,5 +22,20 @@ public class Tres_en_raya {
 		        // Variable per controlar si el joc continua en curs
 		        boolean jocEnCurs = true;
 
+		        // Tauler amb espais buits
+		        for (int i = 0; i < 3; i++) {
+		            for (int j = 0; j < 3; j++) {
+		                tauler[i][j] = " "; 
+		            }
+		        }
+
+		        
+		        System.out.println("Introdueix el nom del Jugador 1:");
+		        jugador1 = scanner.nextLine();
+		        
+		        System.out.println("Introdueix el nom del Jugador 2:");
+		        jugador2 = scanner.nextLine();
+
+		      
 		    }
 		}
